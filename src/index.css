@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@layer base {
+  :root {
+    /* Base */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* Nubank Theme - Light Mode */
+    --primary: 281 95% 38%; /* Nubank Purple */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 250 24% 38%; /* Secondary Nubank dark purple */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    
+    /* Semantic Colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    
+    /* UI Elements */
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 281 95% 38%; /* Match primary */
+    
+    /* Chart Colors */
+    --chart-1: 281 95% 38%; /* Nubank Purple */
+    --chart-2: 250 24% 38%; /* Secondary Nubank */
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    /* Base */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Nubank Theme - Dark Mode */
+    --primary: 281 95% 38%; /* Nubank Purple - unchanged for brand recognition */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 250 24% 38%; /* Secondary Nubank dark purple */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    
+    /* Semantic Colors */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    
+    /* UI Elements */
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 281 95% 38%; /* Match primary */
+    
+    /* Chart Colors - Adjusted for dark mode */
+    --chart-1: 281 95% 58%; /* Lighter Nubank Purple */
+    --chart-2: 250 24% 58%; /* Lighter Secondary Nubank */
+    --chart-3: 197 37% 44%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Nubank Custom Styles */
+@layer components {
+  .nubank-card {
+    @apply bg-white dark:bg-nubank2-900 rounded-lg shadow-nubank-md p-4 transition-all duration-300 ease-in-out;
+  }
+  
+  .nubank-button-primary {
+    @apply bg-nubank-600 hover:bg-nubank-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-300;
+  }
+  
+  .nubank-button-secondary {
+    @apply bg-transparent hover:bg-nubank-100 dark:hover:bg-nubank2-800 text-nubank-600 dark:text-nubank-300 font-medium py-2 px-4 border border-nubank-600 dark:border-nubank-400 rounded-md transition-all duration-300;
+  }
+  
+  .nubank-input {
+    @apply bg-white dark:bg-nubank2-800 border border-gray-300 dark:border-nubank2-700 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-nubank-500 dark:focus:ring-nubank-400 transition-all duration-300;
+  }
+  
+  .nubank-shimmer {
+    @apply bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] animate-shimmer;
+  }
+}
